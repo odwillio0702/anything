@@ -5,6 +5,9 @@ const formspreeEndpoint = 'https://formspree.io/f/xkjgjrnw';
 
 $('#year').textContent = new Date().getFullYear();
 
+const contactEmailLink = $('.email');
+if (contactEmailLink) contactEmailLink.remove();
+
 const responsiveStyles = document.createElement('link');
 responsiveStyles.rel = 'stylesheet';
 responsiveStyles.href = 'responsive.css';

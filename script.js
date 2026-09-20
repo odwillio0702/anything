@@ -68,14 +68,20 @@ if (contactForm) {
     const submitButton = contactForm.querySelector('button[type="submit"]');
     const status = $('.form-status');
     const originalText = submitButton.textContent;
+    const formData = new FormData(contactForm);
+    const senderEmail = formData.get('email');
+
+    formData.set('_subject', 'New portfolio contact request — Odwillio/Melanie');
+    formData.set('_replyto', senderEmail);
+
     submitButton.disabled = true;
     submitButton.textContent = 'Sending…';
-    status.textContent = '';
+    status.textContent = 'Sending your message…';
 
     try {
       const response = await fetch(formspreeEndpoint, {
         method: 'POST',
-        body: new FormData(contactForm),
+        body: formData,
         headers: { Accept: 'application/json' }
       });
 

@@ -1,69 +1,23 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="A minimalist personal CV and portfolio website." />
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Your Name — product designer and front-end developer portfolio and CV.">
+  <meta name="theme-color" content="#f5f5f5">
+  <meta property="og:title" content="Your Name — Portfolio"><meta property="og:description" content="Product design and front-end development portfolio."><meta property="og:type" content="website">
   <title>Your Name — Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header" id="top">
-    <nav class="nav container" aria-label="Main navigation">
-      <a class="brand" href="#top" aria-label="Homepage">✦</a>
-      <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <a class="nav-button" href="#contact">Let's talk <span>↗</span></a>
-    </nav>
-  </header>
-
-  <main>
-    <section class="hero container">
-      <p class="eyebrow">HELLO, I'M YOUR NAME</p>
-      <h1>Building digital<br /><em>experiences</em> that matter.</h1>
-      <p class="hero-copy">A designer and developer focused on creating thoughtful, simple, and memorable experiences for the web.</p>
-      <div class="hero-actions">
-        <a class="button button-dark" href="#experience">Explore my work <span>↓</span></a>
-        <a class="text-link" href="assets/cv.pdf" download>Download CV <span>↗</span></a>
-      </div>
-      <div class="scroll-hint"><span></span> Scroll to discover</div>
-    </section>
-
-    <section class="statement section-light" id="about">
-      <div class="container statement-grid">
-        <p class="eyebrow">01 — ABOUT</p>
-        <div>
-          <h2>Curious by nature.<br /><em>Intentional by design.</em></h2>
-          <p class="large-copy">I turn complex ideas into clear, useful, and beautiful products. With a balance of creative thinking and technical craft, I help teams bring meaningful ideas to life.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="experience container section" id="experience">
-      <div class="section-heading"><p class="eyebrow">02 — EXPERIENCE</p><h2>A few things<br /><em>I've worked on.</em></h2></div>
-      <div class="timeline">
-        <article class="timeline-item"><span class="year">2023 — NOW</span><div><h3>Senior Product Designer <small>at Company Name</small></h3><p>Leading design for digital products, from early concepts to polished experiences used by thousands of people.</p></div></article>
-        <article class="timeline-item"><span class="year">2021 — 2023</span><div><h3>Product Designer <small>at Studio Name</small></h3><p>Partnered with ambitious teams to shape brand identities and intuitive web experiences.</p></div></article>
-        <article class="timeline-item"><span class="year">2019 — 2021</span><div><h3>Designer & Developer <small>Freelance</small></h3><p>Created websites and visual systems for people and companies with something important to say.</p></div></article>
-      </div>
-    </section>
-
-    <section class="skills section-light" id="skills">
-      <div class="container skills-grid"><p class="eyebrow">03 — EXPERTISE</p><div><h2>Always learning.<br /><em>Always making.</em></h2><div class="skill-list"><span>Product design</span><span>Web development</span><span>Art direction</span><span>Design systems</span><span>Prototyping</span><span>Creative strategy</span></div></div></div>
-    </section>
-
-    <section class="contact container section" id="contact"><p class="eyebrow">04 — GET IN TOUCH</p><h2>Have a project<br />in mind?</h2><a class="contact-link" href="mailto:hello@example.com">hello@example.com <span>↗</span></a></section>
-  </main>
-
-  <footer class="footer"><div class="container footer-inner"><span>© <span id="year"></span> Your Name</span><div><a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a><a href="#top">Back to top ↑</a></div></div></footer>
-  <script src="script.js"></script>
-</body>
-</html>
+  <a class="skip-link" href="#main">Skip to content</a><div class="cursor-dot"></div><div class="cursor-ring"></div>
+  <header class="site-header"><nav class="container nav" aria-label="Main navigation"><a class="brand" href="#top" aria-label="Home">YN</a><button class="menu-toggle" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">☰</button><div class="nav-links" id="site-menu"><a href="#about">About</a><a href="#work">Work</a><a href="#experience">Experience</a><a href="#contact">Contact</a></div><button class="theme-toggle" aria-label="Switch color theme">☾</button></nav></header>
+  <main id="main">
+    <section class="hero container" id="top"><div class="hero-copy reveal"><p class="eyebrow">HELLO, I'M YOUR NAME</p><h1>Building digital <em>experiences</em> that matter.</h1><p class="lead">A designer and developer creating thoughtful, simple, and memorable experiences for the web.</p><div class="actions"><a class="button primary" href="#work">Explore my work ↓</a><button class="button secondary" id="download-cv">Download CV ↗</button></div><div class="stats"><span><b>8+</b> Years experience</span><span><b>40+</b> Projects shipped</span></div></div><div class="hero-art reveal" aria-label="Abstract portfolio illustration"><div class="orb"></div><div class="art-card">DESIGN<br><strong>with intent.</strong></div></div></section>
+    <section class="soft section" id="about"><div class="container split"><p class="eyebrow">01 — ABOUT</p><div><h2>Curious by nature.<br><em>Intentional by design.</em></h2><p class="large-copy">I turn complex ideas into clear, useful, and beautiful products. I combine creative thinking with technical craft to help teams bring meaningful ideas to life.</p></div></div></section>
+    <section class="container section" id="work"><div class="heading"><p class="eyebrow">02 — SELECTED WORK</p><h2>Things I've made.</h2></div><div class="filters" role="group" aria-label="Filter projects"><button class="filter active" data-filter="all">All</button><button class="filter" data-filter="product">Product</button><button class="filter" data-filter="brand">Brand</button><button class="filter" data-filter="web">Web</button></div><div class="projects"><article class="project reveal" data-category="brand"><div class="project-image gradient-one"><span>01</span></div><div><small>Brand platform</small><h3>Northstar Studio</h3></div></article><article class="project reveal" data-category="product"><div class="project-image gradient-two"><span>02</span></div><div><small>Product experience</small><h3>Flow Metrics</h3></div></article><article class="project reveal" data-category="web"><div class="project-image gradient-three"><span>03</span></div><div><small>Marketing website</small><h3>Luma Labs</h3></div></article></div></section>
+    <section class="soft section" id="skills"><div class="container split"><p class="eyebrow">03 — EXPERTISE</p><div><h2>Always learning.<br><em>Always making.</em></h2><div class="skills"><span>Product design</span><span>Web development</span><span>Art direction</span><span>Design systems</span><span>Prototyping</span><span>Creative strategy</span></div></div></div></section>
+    <section class="container section" id="experience"><div class="heading"><p class="eyebrow">04 — EXPERIENCE</p><h2>Career timeline.</h2></div><div class="timeline"><details open class="timeline-item reveal"><summary><span>2023 — NOW</span><b>Senior Product Designer</b></summary><p>Company Name · Leading design for digital products from early concepts to polished experiences.</p></details><details class="timeline-item reveal"><summary><span>2021 — 2023</span><b>Product Designer</b></summary><p>Studio Name · Shaped brand identities and intuitive web experiences for ambitious teams.</p></details><details class="timeline-item reveal"><summary><span>2019 — 2021</span><b>Designer & Developer</b></summary><p>Freelance · Created websites and visual systems for people and companies with something important to say.</p></details></div></section>
+    <section class="soft section" id="contact"><div class="container contact-grid"><div><p class="eyebrow">05 — GET IN TOUCH</p><h2>Have a project<br>in mind?</h2><a class="email" href="mailto:hello@example.com">hello@example.com ↗</a></div><form id="contact-form" novalidate><label>Name<input name="name" required autocomplete="name" placeholder="Your name"></label><label>Email<input type="email" name="email" required autocomplete="email" placeholder="name@example.com"></label><label>Message<textarea name="message" required rows="5" placeholder="Tell me about your project..."></textarea></label><button class="button primary" type="submit">Send message ↗</button><p class="form-status" role="status"></p></form></div></section>
+  </main><footer><div class="container footer"><span>© <span id="year"></span> Your Name</span><div><a href="https://github.com" rel="noreferrer">GitHub</a><a href="https://linkedin.com" rel="noreferrer">LinkedIn</a><a href="#top">Back to top ↑</a></div></div></footer><script src="script.js"></script><script src="anti-copy.js"></script>
+</body></html>

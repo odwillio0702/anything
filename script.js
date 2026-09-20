@@ -59,6 +59,16 @@ $$('.filter').forEach((button) => button.addEventListener('click', () => {
   });
 }));
 
+// Skills: the tools and technologies used by Odwillio / Melanie.
+const skills = ['Figma', 'HTML', 'CSS', 'Python', 'JavaScript', 'React', 'C', 'C++'];
+const skillsContainer = $('.skills');
+if (skillsContainer) {
+  skillsContainer.innerHTML = skills
+    .map((skill, index) => `<span class="skill-pill" style="--skill-index:${index}">${skill}</span>`)
+    .join('');
+  skillsContainer.setAttribute('aria-label', 'Skills and technologies');
+}
+
 const contactForm = $('#contact-form');
 if (contactForm) {
   contactForm.addEventListener('submit', async (event) => {
@@ -103,7 +113,7 @@ if (contactForm) {
 const downloadButton = $('#download-cv');
 if (downloadButton) {
   downloadButton.addEventListener('click', () => {
-    const cv = `ODWILLIO / MELANIE\nSelf-taught Designer & Developer\n\nABOUT\nSelf-taught designer and developer creating thoughtful digital experiences.\n\nEXPERIENCE\n2022 — NOW\nIndependent learning, design, and development under the names Odwillio and Melanie.\n\nCONTACT\nodwillwayno@gmail.com`;
+    const cv = `ODWILLIO / MELANIE\nSelf-taught Designer & Developer\n\nSKILLS\nFigma, HTML, CSS, Python, JavaScript, React, C, C++\n\nABOUT\nSelf-taught designer and developer creating thoughtful digital experiences.\n\nEXPERIENCE\n2022 — NOW\nIndependent learning, design, and development under the names Odwillio and Melanie.\n\nCONTACT\nodwillwayno@gmail.com`;
     const url = URL.createObjectURL(new Blob([cv], { type: 'text/plain' }));
     const link = document.createElement('a');
     link.href = url;

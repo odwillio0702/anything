@@ -1,0 +1,3 @@
+# Require review from the repository owner for changes.
+# This file is enforced when branch protection rules require CODEOWNERS review.
+* @odwillio0702

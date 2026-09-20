@@ -1,0 +1,13 @@
+# Files containing source code and site assets are intentionally tracked as text.
+# Do not commit local editor, OS, or secret files.
+.DS_Store
+Thumbs.db
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+.vscode/
+.idea/

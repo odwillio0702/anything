@@ -1,0 +1,49 @@
+:root { --ink:#1d1d1f; --muted:#6e6e73; --paper:#f5f5f7; --white:#fff; --line:#d2d2d7; --accent:#b8a0ff; }
+* { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body { background:var(--white); color:var(--ink); font-family:Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height:1.5; }
+a { color:inherit; text-decoration:none; }
+.container { width:min(1120px, calc(100% - 48px)); margin:auto; }
+.site-header { background:rgba(255,255,255,.82); backdrop-filter:blur(18px); position:sticky; top:0; z-index:10; border-bottom:1px solid rgba(0,0,0,.06); }
+.nav { height:64px; display:flex; align-items:center; gap:30px; }
+.brand { font-size:25px; font-weight:700; margin-right:auto; }
+.nav-links { display:flex; gap:28px; font-size:13px; color:var(--muted); }
+.nav-links a:hover, .footer a:hover { color:var(--ink); }
+.nav-button { background:var(--ink); color:#fff; padding:10px 17px; border-radius:24px; font-size:13px; }
+.nav-button span, .button span, .text-link span, .contact-link span { margin-left:9px; }
+.menu-toggle { display:none; background:none; border:0; font-size:22px; }
+.hero { min-height:calc(100vh - 64px); display:flex; flex-direction:column; justify-content:center; padding:90px 0 70px; }
+.eyebrow { color:var(--muted); font-size:11px; font-weight:700; letter-spacing:.14em; }
+h1, h2 { font-weight:700; letter-spacing:-.065em; line-height:1.02; }
+h1 { font-size:clamp(55px, 9vw, 118px); max-width:1000px; margin:25px 0 30px; }
+h2 { font-size:clamp(42px, 6vw, 76px); }
+em { color:var(--muted); font-style:normal; }
+.hero-copy { max-width:470px; color:var(--muted); font-size:18px; }
+.hero-actions { align-items:center; display:flex; gap:30px; margin-top:38px; }
+.button { border-radius:28px; display:inline-block; padding:15px 22px; font-size:14px; }
+.button-dark { color:#fff; background:var(--ink); }
+.button-dark:hover { transform:translateY(-2px); }
+.text-link, .contact-link { font-size:14px; border-bottom:1px solid var(--ink); padding-bottom:5px; }
+.scroll-hint { align-items:center; color:var(--muted); display:flex; font-size:11px; gap:10px; margin-top:auto; padding-top:80px; }
+.scroll-hint span { border:1px solid var(--muted); border-radius:50%; height:8px; width:8px; }
+.section { padding:150px 0; }
+.section-light { background:var(--paper); padding:150px 0; }
+.statement-grid, .skills-grid { display:grid; grid-template-columns:30% 1fr; gap:10%; }
+.statement h2, .skills h2 { margin-bottom:40px; }
+.large-copy { color:var(--muted); font-size:21px; line-height:1.6; max-width:600px; }
+.section-heading { display:flex; justify-content:space-between; margin-bottom:85px; }
+.section-heading h2 { text-align:right; }
+.timeline { border-top:1px solid var(--line); }
+.timeline-item { display:grid; grid-template-columns:30% 1fr; gap:10%; border-bottom:1px solid var(--line); padding:34px 0; }
+.year { color:var(--muted); font-size:11px; font-weight:700; letter-spacing:.1em; }
+.timeline h3 { font-size:22px; font-weight:600; }
+.timeline h3 small { color:var(--muted); font-size:15px; font-weight:400; }
+.timeline p { color:var(--muted); margin-top:12px; max-width:580px; }
+.skill-list { display:flex; flex-wrap:wrap; gap:10px; max-width:600px; }
+.skill-list span { border:1px solid var(--line); border-radius:30px; color:var(--muted); padding:13px 18px; font-size:14px; }
+.contact h2 { font-size:clamp(60px, 10vw, 130px); margin:28px 0 55px; }
+.contact-link { display:inline-block; font-size:18px; }
+.footer { border-top:1px solid var(--line); color:var(--muted); font-size:12px; padding:28px 0; }
+.footer-inner { display:flex; justify-content:space-between; }
+.footer-inner div { display:flex; gap:25px; }
+@media (max-width:700px) { .container { width:min(100% - 36px, 560px); } .nav-links { background:#fff; display:none; flex-direction:column; left:0; padding:20px 18px; position:absolute; right:0; top:64px; box-shadow:0 12px 20px #0001; } .nav-links.open { display:flex; } .menu-toggle { display:block; } .nav-button { display:none; } .hero { min-height:calc(100vh - 64px); } .section, .section-light { padding:90px 0; } .statement-grid, .skills-grid, .timeline-item { grid-template-columns:1fr; gap:25px; } .section-heading { display:block; margin-bottom:50px; } .section-heading h2 { margin-top:25px; text-align:left; } .timeline-item { gap:12px; } .footer-inner { align-items:flex-start; flex-direction:column; gap:18px; } }

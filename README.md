@@ -5,19 +5,20 @@ A personal portfolio website for a CV/resume.
 ## Overview
 This project is a simple, modern website designed to showcase a professional curriculum vitae and personal profile.
 
-## Features
-- Clean and professional layout
-- About section
-- Skills section
-- Experience timeline
-- Education section
-- Contact section
+## Website and Code Protection
+This website, its code, layout, design, assets, copy, and structure are the intellectual property of the author and are protected by copyright law. Unauthorized copying, reproduction, modification, distribution, or reuse of any part of this project is prohibited.
 
-## Purpose
-Built as a portfolio-style website to present a CV online in an attractive and easy-to-navigate format.
+## No Unauthorized Copying
+The content and source code of this website may not be copied, republished, redistributed, or used in any form without explicit written permission from the copyright holder.
 
-## Getting Started
-Open the project in a browser and customize the content with your own information.
+## Design Restrictions
+The visual design, branding, structure, typography, styling, images, and code architecture are proprietary and may not be reused, adapted, or replicated without prior authorization.
 
-## License
-This project is for personal portfolio use.
+## Personal Use
+This repository is intended for personal presentation and demonstration purposes only. It may not be used as a template, starter project, or reusable portfolio for others without permission.
+
+## Rights
+All rights are reserved. No license is granted for copying, republishing, redistribution, or commercial use except where specifically written permission is granted by the owner.
+
+## Disclaimer
+This project is provided "as is" without warranty of any kind. The author accepts no liability for any damages arising from use of the website or the code.

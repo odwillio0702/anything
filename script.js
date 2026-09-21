@@ -3,8 +3,7 @@ const $$ = (selector) => document.querySelectorAll(selector);
 const body = document.body;
 const formspreeEndpoint = 'https://formspree.io/f/xkjgjrnw';
 
-const year = $('#year');
-if (year) year.textContent = new Date().getFullYear();
+$('#year').textContent = new Date().getFullYear();
 
 const contactEmailLink = $('.email');
 if (contactEmailLink) contactEmailLink.remove();
@@ -14,20 +13,16 @@ responsiveStyles.rel = 'stylesheet';
 responsiveStyles.href = 'responsive.css';
 document.head.appendChild(responsiveStyles);
 
-if (localStorage.getItem('theme') === 'dark') body.classList.add('dark');
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') body.classList.add('dark');
 
 const theme = $('.theme-toggle');
 if (theme) {
-  const updateThemeLabel = () => {
-    const dark = body.classList.contains('dark');
-    theme.textContent = dark ? '☀' : '☾';
-    theme.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
-  };
-  updateThemeLabel();
+  theme.textContent = body.classList.contains('dark') ? '☀' : '☾';
   theme.addEventListener('click', () => {
     body.classList.toggle('dark');
     localStorage.setItem('theme', body.classList.contains('dark') ? 'dark' : 'light');
-    updateThemeLabel();
+    theme.textContent = body.classList.contains('dark') ? '☀' : '☾';
   });
 }
 
@@ -47,20 +42,13 @@ if (menu && nav) {
   }));
 }
 
-if ('IntersectionObserver' in window) {
-  const observer = new IntersectionObserver(
-    (entries) => entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    }),
-    { threshold: 0.12 }
-  );
-  $$('.reveal').forEach((element) => observer.observe(element));
-} else {
-  $$('.reveal').forEach((element) => element.classList.add('visible'));
-}
+const observer = new IntersectionObserver(
+  (entries) => entries.forEach((entry) => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  }),
+  { threshold: 0.12 }
+);
+$$('.reveal').forEach((element) => observer.observe(element));
 
 $$('.filter').forEach((button) => button.addEventListener('click', () => {
   $$('.filter').forEach((item) => item.classList.remove('active'));
@@ -71,15 +59,16 @@ $$('.filter').forEach((button) => button.addEventListener('click', () => {
   });
 }));
 
-// Link the Web project card to the construction-company portfolio.
-const webProject = $$('.project').find((project) => project.dataset.category === 'web');
+const webProject = document.querySelector('.project[data-category="web"]');
 if (webProject) {
-  const projectUrl = 'construction-company.html';
+  const openProject = () => {
+    const url = webProject.dataset.url || 'construction-company.html';
+    window.location.href = url;
+  };
+
+  webProject.style.cursor = 'pointer';
   webProject.setAttribute('role', 'link');
   webProject.setAttribute('tabindex', '0');
-  webProject.setAttribute('aria-label', 'Open Luma Labs construction company portfolio');
-  webProject.style.cursor = 'pointer';
-  const openProject = () => { window.location.href = projectUrl; };
   webProject.addEventListener('click', openProject);
   webProject.addEventListener('keydown', (event) => {
     if (event.key === 'Enter' || event.key === ' ') {
@@ -89,6 +78,7 @@ if (webProject) {
   });
 }
 
+// Skills: the tools and technologies used by Odwillio / Melanie.
 const skills = ['Figma', 'HTML', 'CSS', 'Python', 'JavaScript', 'React', 'C', 'C++'];
 const skillsContainer = $('.skills');
 if (skillsContainer) {
@@ -115,6 +105,7 @@ if (contactForm) {
 
     formData.set('_subject', 'New portfolio contact request — Odwillio/Melanie');
     formData.set('_replyto', senderEmail);
+
     submitButton.disabled = true;
     submitButton.textContent = 'Sending…';
     status.textContent = 'Sending your message…';
@@ -125,6 +116,7 @@ if (contactForm) {
         body: formData,
         headers: { Accept: 'application/json' }
       });
+
       if (!response.ok) throw new Error('Form submission failed');
       status.textContent = 'Thank you — your message was sent successfully.';
       contactForm.reset();

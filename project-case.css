@@ -1,9 +1,11 @@
 .project {
   position: relative;
   cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   overflow: hidden;
   border-radius: 20px;
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  background: #ffffff;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .project:hover,
@@ -40,7 +42,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0));
+  background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0));
   pointer-events: none;
 }
 
@@ -56,7 +58,7 @@
   height: 42px;
   border-radius: 50%;
   background: rgba(255,255,255,0.82);
-  color: var(--ink);
+  color: #111111;
   font-weight: 700;
   box-shadow: 0 8px 18px rgba(0,0,0,0.08);
 }
@@ -66,11 +68,12 @@
   flex-direction: column;
   gap: 8px;
   padding: 18px 18px 20px;
-  background: rgba(255,255,255,0.7);
+  background: #ffffff;
+  color: #111111;
 }
 
 .project-copy small {
-  color: var(--muted);
+  color: #5d5d5d;
   font-size: 0.8rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -78,6 +81,7 @@
 
 .project-copy h3 {
   margin: 0;
+  color: #111111;
   font-size: clamp(1.4rem, 2vw, 2rem);
   line-height: 1.25;
 }
@@ -87,19 +91,19 @@
   align-self: flex-start;
   margin-top: 4px;
   padding: 7px 10px;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(17,17,17,0.12);
   border-radius: 999px;
   font-size: 0.72rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--ink);
-  background: rgba(255,255,255,0.7);
-  transition: background 0.25s ease, border-color 0.25s ease;
+  color: #111111;
+  background: #f5f5f3;
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
 }
 
 .project:hover .project-tag,
 .project:focus-visible .project-tag {
-  background: var(--ink);
-  color: #fff;
-  border-color: var(--ink);
+  background: #111111;
+  color: #ffffff;
+  border-color: #111111;
 }

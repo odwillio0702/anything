@@ -3,7 +3,8 @@ const $$ = (selector) => document.querySelectorAll(selector);
 const body = document.body;
 const formspreeEndpoint = 'https://formspree.io/f/xkjgjrnw';
 
-$('#year').textContent = new Date().getFullYear();
+const year = $('#year');
+if (year) year.textContent = new Date().getFullYear();
 
 const contactEmailLink = $('.email');
 if (contactEmailLink) contactEmailLink.remove();
@@ -13,16 +14,20 @@ responsiveStyles.rel = 'stylesheet';
 responsiveStyles.href = 'responsive.css';
 document.head.appendChild(responsiveStyles);
 
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'dark') body.classList.add('dark');
+if (localStorage.getItem('theme') === 'dark') body.classList.add('dark');
 
 const theme = $('.theme-toggle');
 if (theme) {
-  theme.textContent = body.classList.contains('dark') ? '☀' : '☾';
+  const updateThemeLabel = () => {
+    const dark = body.classList.contains('dark');
+    theme.textContent = dark ? '☀' : '☾';
+    theme.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+  };
+  updateThemeLabel();
   theme.addEventListener('click', () => {
     body.classList.toggle('dark');
     localStorage.setItem('theme', body.classList.contains('dark') ? 'dark' : 'light');
-    theme.textContent = body.classList.contains('dark') ? '☀' : '☾';
+    updateThemeLabel();
   });
 }
 
@@ -42,13 +47,20 @@ if (menu && nav) {
   }));
 }
 
-const observer = new IntersectionObserver(
-  (entries) => entries.forEach((entry) => {
-    if (entry.isIntersecting) entry.target.classList.add('visible');
-  }),
-  { threshold: 0.12 }
-);
-$$('.reveal').forEach((element) => observer.observe(element));
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(
+    (entries) => entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    }),
+    { threshold: 0.12 }
+  );
+  $$('.reveal').forEach((element) => observer.observe(element));
+} else {
+  $$('.reveal').forEach((element) => element.classList.add('visible'));
+}
 
 $$('.filter').forEach((button) => button.addEventListener('click', () => {
   $$('.filter').forEach((item) => item.classList.remove('active'));
@@ -59,7 +71,24 @@ $$('.filter').forEach((button) => button.addEventListener('click', () => {
   });
 }));
 
-// Skills: the tools and technologies used by Odwillio / Melanie.
+// Link the Web project card to the construction-company portfolio.
+const webProject = $$('.project').find((project) => project.dataset.category === 'web');
+if (webProject) {
+  const projectUrl = 'construction-company.html';
+  webProject.setAttribute('role', 'link');
+  webProject.setAttribute('tabindex', '0');
+  webProject.setAttribute('aria-label', 'Open Luma Labs construction company portfolio');
+  webProject.style.cursor = 'pointer';
+  const openProject = () => { window.location.href = projectUrl; };
+  webProject.addEventListener('click', openProject);
+  webProject.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      openProject();
+    }
+  });
+}
+
 const skills = ['Figma', 'HTML', 'CSS', 'Python', 'JavaScript', 'React', 'C', 'C++'];
 const skillsContainer = $('.skills');
 if (skillsContainer) {
@@ -86,7 +115,6 @@ if (contactForm) {
 
     formData.set('_subject', 'New portfolio contact request — Odwillio/Melanie');
     formData.set('_replyto', senderEmail);
-
     submitButton.disabled = true;
     submitButton.textContent = 'Sending…';
     status.textContent = 'Sending your message…';
@@ -97,7 +125,6 @@ if (contactForm) {
         body: formData,
         headers: { Accept: 'application/json' }
       });
-
       if (!response.ok) throw new Error('Form submission failed');
       status.textContent = 'Thank you — your message was sent successfully.';
       contactForm.reset();
